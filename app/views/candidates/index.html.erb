@@ -1,0 +1,36 @@
+
+
+<h1>Hi</h1>
+
+<!-- <%= link_to 'Add Candidate','/candidates/new' %> -->
+<%= link_to 'Add Candidate',new_candidate_path %>
+<!-- <a href="/candidates/new">Add Candidate</a> -->
+
+<table>
+    <tr>
+        <td></td>
+        <td>Votes</td>
+        <td>Name</td>
+        <td>Party</td>
+        <td>Age</td>
+        <td>Action</td>
+    </tr>
+
+   <% @candidates.each do |candidate| %>
+   <tr>
+    <td><%= link_to  'vote'  , vote_candidate_path(candidate.id) , method: 'post' %></td>
+    <!-- <td><%= candidate.vote_logs_count %></td> -->
+    <td><%= candidate.vote_logs.size %></td>
+    <td><%= link_to candidate.name ,  candidate_path(candidate.id)  %></td> 
+       <!-- 如果routes裡有:id就要把id用過來 -->
+    <td><%= candidate.party %></td>
+    <td><%= candidate.age %></td>
+    <td>
+        <%= link_to 'update', edit_candidate_path(candidate.id) %>
+
+        <%= link_to 'delete', candidate_path(candidate.id) , method: 'delete' , data: {confirm: "are you sure!?"} %>
+    </td>
+</tr>
+
+   <% end %>  
+</table>

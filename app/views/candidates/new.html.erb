@@ -1,0 +1,11 @@
+<h1>Add Candidate</h1>
+
+<!-- <form action="/candidates" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="text" name="abc">
+    <input type="submit" value="GO">
+</form> -->
+
+
+<%= render 'form' , candidate: @candidate %>
+<%= render 'ad' , ad_text: 'aaa', ad_content: 'sss' %>
