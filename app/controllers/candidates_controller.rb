@@ -80,3 +80,4 @@ class CandidatesController < ApplicationController
     @candidate = Candidate.find_by(id: params[:id])
   end
 end
+#測試git 的功能
